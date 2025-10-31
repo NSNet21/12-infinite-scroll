@@ -1,0 +1,596 @@
+:root[data-theme="light"] {
+  --text: #160e10;
+  --text-fade: rgb(22, 14, 16, 0.5);
+  --background: #fcf8f9;
+  --background-4card: #dadada;
+  --background-stronger: #c2c2c2;
+  --background-stronger-fade: rgb(154, 154, 154, 0.4);
+  --primary: #6d2239;
+  --primary-fade: rgb(109, 34, 57, 0.5);
+  --secondary: #e37296;
+  --secondary-fade: rgb(227, 114, 150, 0.7);
+  --accent: #c11549;
+}
+:root[data-theme="dark"] {
+  --text: #f1e9eb;
+  --text-fade: rgb(241, 233, 235, 0.4);
+  --background: #070304;
+  --background-4card: #1c151a;
+  --background-stronger: #211f1f;
+  --background-stronger-fade: rgb(33, 31, 31, 0.4);
+  --primary: #dd92a9;
+  --primary-fade: rgb(221, 146, 169, 0.5);
+  --secondary: #8d1c3f;
+  --secondary-fade: rgb(141, 28, 63, 0.5);
+  --accent: #ea3e72;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
+}
+
+/* footer section */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: var(--background-stronger);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-fade);
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p.footer-text {
+  color: var(--text-fade);
+  font-weight: 400;
+  font-size: 0.75rem;
+  padding: 0;
+}
+
+.footer a {
+  color: var(--text-fade);
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 0.75rem;
+  padding: 0;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+/* navbar section */
+
+.navbar {
+  display: flex;
+  background-color: var(--background-stronger-fade);
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.navbar .logo .text-logo {
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 800px;
+  font-family: "Noto Sans JP", sans-serif;
+  cursor: default;
+  text-wrap: nowrap;
+  transition: all 0.3s ease;
+  margin: 15px;
+}
+
+.navbar .logo:hover .text-logo {
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--accent);
+}
+
+.navbar ul.menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul.menu-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar a {
+  display: flex;
+  padding: 10px 10px;
+  padding-top: 11px;
+  border-radius: 3px;
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  opacity: 0.7;
+}
+
+.navbar a:hover {
+  background-color: var(--secondary-fade);
+  opacity: 1;
+}
+
+.navbar button#themeSwap {
+  display: inline-block;
+  padding: 11px 10px;
+  border-radius: 5px;
+  padding-top: 12px;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 400;
+  background-color: var(--bg-sat-800);
+  transition: all 0.4s ease;
+  opacity: 0.7;
+}
+
+.navbar button#themeSwap:hover {
+  background-color: var(--secondary-fade);
+  opacity: 1;
+}
+
+.navbar button#themeSwap:hover #themeText {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.navbar button#themeSwap #themeText {
+  color: var(--text-fade);
+  font-weight: 400;
+  transition: all 0.4s ease;
+}
+
+.navbar .text {
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: all 0.4s ease;
+}
+
+.navbar .icon {
+  margin-right: 5px;
+  font-size: 0.85rem;
+  transition: all 0.4s ease;
+}
+
+.navbar .icon i {
+  vertical-align: middle;
+  transition: transform 0.9s ease, opacity 0.9s ease;
+}
+
+/* fade class for icon on theme button changing */
+
+.fade {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* hamburger icon section */
+
+.navbar button#hamIcon {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  display: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: var(--text);
+  background-color: var(--bg-sat-800);
+  transition: opacity 0.5s ease, background-color 0.4s ease, color 0.4s ease,
+    text-shadow 0.4s ease;
+  cursor: pointer;
+  opacity: 1;
+  font-weight: 600;
+}
+
+.navbar button#hamIcon i {
+  font-size: 1.5rem;
+}
+
+.navbar button#hamIcon:hover {
+  color: var(--primary);
+  text-shadow: 0 0 30px var(--primary);
+}
+
+/* close button (on menu list on media query) section */
+
+.navbar button#closeBtn {
+  display: none;
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: var(--bg-sat-800);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+.navbar button#closeBtn:hover {
+  /* background-color: var(--secondary-fade); */
+  color: var(--accent);
+  opacity: 1;
+  text-shadow: 0 0 15px var(--accent);
+}
+
+/* infinite grid sliding section */
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.container {
+  white-space: nowrap;
+  max-width: 1500px;
+  width: 100%;
+  padding: 35px;
+  position: relative;
+  height: 88vh;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+  scrollbar-width: none;
+  /* background-color: red; */
+}
+
+.card {
+  will-change: transform; /* ช่วย GPU render smooth ขึ้น */
+}
+
+.card.line1 {
+  top: 50px;
+  left: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideLeft;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line2 {
+  top: 150px;
+  right: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideRight;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line3 {
+  top: 250px;
+  left: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideLeft;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line4 {
+  top: 350px;
+  right: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideRight;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line5 {
+  top: 450px;
+  left: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideLeft;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line6 {
+  top: 550px;
+  right: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideRight;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line7 {
+  top: 650px;
+  left: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideLeft;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card.line8 {
+  top: 750px;
+  right: max(calc(100px * 15), 100%);
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  box-shadow: 0px 0px 10px var(--primary-fade);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  animation-name: slideRight;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.card svg {
+  width: 40%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: auto;
+  background: none;
+  fill: var(--background-4card);
+}
+
+@keyframes slideLeft {
+  from {
+    left: max(calc(100px * 15), 100%);
+  }
+  to {
+    left: -100px;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    right: max(calc(100px * 15), 100%);
+  }
+  to {
+    right: -100px;
+  }
+}
+
+.item1 {
+  animation-delay: calc(25s / 15 * (15 - 1) * -1);
+}
+.item2 {
+  animation-delay: calc(25s / 15 * (15 - 2) * -1);
+}
+.item3 {
+  animation-delay: calc(25s / 15 * (15 - 3) * -1);
+}
+.item4 {
+  animation-delay: calc(25s / 15 * (15 - 4) * -1);
+}
+.item5 {
+  animation-delay: calc(25s / 15 * (15 - 5) * -1);
+}
+.item6 {
+  animation-delay: calc(25s / 15 * (15 - 6) * -1);
+}
+.item7 {
+  animation-delay: calc(25s / 15 * (15 - 7) * -1);
+}
+.item8 {
+  animation-delay: calc(25s / 15 * (15 - 8) * -1);
+}
+.item9 {
+  animation-delay: calc(25s / 15 * (15 - 9) * -1);
+}
+.item10 {
+  animation-delay: calc(25s / 15 * (15 - 10) * -1);
+}
+.item11 {
+  animation-delay: calc(25s / 15 * (15 - 11) * -1);
+}
+.item12 {
+  animation-delay: calc(25s / 15 * (15 - 12) * -1);
+}
+.item13 {
+  animation-delay: calc(25s / 15 * (15 - 13) * -1);
+}
+.item14 {
+  animation-delay: calc(25s / 15 * (15 - 14) * -1);
+}
+.item15 {
+  animation-delay: calc(25s / 15 * (15 - 15) * -1);
+}
+
+/* prefer reduce motion */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* media query section */
+
+@media only screen and (max-width: 935px) {
+  .navbar {
+    padding: 5px 35px;
+    justify-content: flex-start;
+  }
+
+  .navbar .logo .text-logo {
+    font-size: 1.25rem;
+    margin: 15px;
+  }
+
+  .navbar button#hamIcon {
+    display: inline-block;
+  }
+
+  .navbar button#closeBtn {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .navbar ul.menu-list {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    background-color: var(--secondary-fade);
+    height: 100vh;
+    max-width: 0;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    box-shadow: 5px 0 25px var(--secondary-fade);
+    white-space: nowrap;
+    z-index: 22;
+    transition: all 0.3s ease;
+  }
+
+  .navbar ul.menu-list.active {
+    max-width: 200px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar .text {
+    font-size: 1rem;
+  }
+
+  .navbar .icon {
+    font-size: 1rem;
+  }
+
+  .navbar button#hamIcon {
+    font-size: 1rem;
+  }
+
+  .navbar ul.menu-list li {
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 15px 0;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .navbar button#themeSwap {
+    width: 100%;
+    padding: 15px 0;
+  }
+}
