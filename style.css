@@ -8,7 +8,7 @@
   --primary: #6d2239;
   --primary-fade: rgb(109, 34, 57, 0.5);
   --secondary: #e37296;
-  --secondary-fade: rgb(227, 114, 150, 0.7);
+  --secondary-fade: rgb(227, 114, 150, 0.9);
   --accent: #c11549;
 }
 :root[data-theme="dark"] {
@@ -21,7 +21,7 @@
   --primary: #dd92a9;
   --primary-fade: rgb(221, 146, 169, 0.5);
   --secondary: #8d1c3f;
-  --secondary-fade: rgb(141, 28, 63, 0.5);
+  --secondary-fade: rgb(141, 28, 63, 0.9);
   --accent: #ea3e72;
 }
 
@@ -134,7 +134,7 @@ p.footer-text {
 }
 
 .navbar a:hover {
-  background-color: var(--secondary-fade);
+  background-color: var(--secondary);
   opacity: 1;
 }
 
@@ -152,7 +152,7 @@ p.footer-text {
 }
 
 .navbar button#themeSwap:hover {
-  background-color: var(--secondary-fade);
+  background-color: var(--secondary);
   opacity: 1;
 }
 
@@ -440,6 +440,7 @@ p.footer-text {
   fill: var(--background-4card);
 }
 
+
 @keyframes slideLeft {
   from {
     left: max(calc(100px * 15), 100%);
@@ -592,5 +593,23 @@ p.footer-text {
   .navbar button#themeSwap {
     width: 100%;
     padding: 15px 0;
+  }
+
+  .navbar button#themeSwap:hover {
+    background-color: var(--accent);
+    color: var(--background);
+  }
+
+  .navbar button#themeSwap:hover #themeText {
+    color: var(--background);
+  }
+
+  .navbar a:hover {
+    background-color: var(--accent);
+  }
+
+  .navbar a:hover .icon,
+  .navbar a:hover .text {
+    color: var(--background);
   }
 }
