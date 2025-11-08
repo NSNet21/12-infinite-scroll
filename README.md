@@ -127,6 +127,9 @@ To make the icons appear and disappear smoothly at the edges, we apply a `mask-i
 2. Open the `index.html` file in your web browser.
 3. That's it!
 
+---
+
 ### 📜 Credits
 
 All SVG icons are from Simple [**Icons.org.**](https://simpleicons.org/)
+
